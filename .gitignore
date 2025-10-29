@@ -1,0 +1,88 @@
+Dependencias
+node_modules/
+.pnp
+.pnp.js
+
+Testing
+coverage/
+
+Producción
+dist/
+build/
+
+Caché y archivos temporales
+.vite/
+.cache/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+Sistema operativo
+Thumbs.db
+Desktop.ini
+
+Archivos ZIP y backups
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+Documentación temporal - NO SUBIR
+ARREGLAR-GIT-AHORA.txt
+ARREGLO-VERCEL.md
+ARREGLOS-TIPOGRAFIA.md
+Attributions.md
+COMANDOS.md
+COMO-DEBE-VERSE.md
+COPIAR-Y-PEGAR-AHORA.txt
+DEPLOY-AHORA.md
+DEPLOYMENT.md
+DIAGNOSTICO-COMPLETO.txt
+EJECUTA-ESTO-AHORA.txt
+EJECUTAR-AHORA.txt
+EJECUTAR-ESTOS-COMANDOS.txt
+EMPEZAR-DESDE-CERO.md
+ESTADO-PROYECTO.md
+GITHUB-RAPIDO.txt
+HACER-COMMIT.txt
+INICIO-RAPIDO.txt
+INSTALAR-NODEJS.md
+LEEME-PRIMERO.md
+LIMPIAR-PROYECTO.txt
+PASOS-FINALES.txt
+RESUMEN-EJECUTIVO.md
+SOLUCION-FINAL.ps1
+SOLUCION-WINDOWS.txt
+SOLUCIONAR-ESTILOS.md
+SOLUCIONAR-POWERSHELL.md
+SUBIR-A-GITHUB.md
+TEST-TAILWIND.html
+VERIFICACION.md
+
+Guidelines (carpeta temporal)
+guidelines/
+
+Assets y CSS temporales
+assets/
+index.css
+
+Package lock
+package-lock.json
