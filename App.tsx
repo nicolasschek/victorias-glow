@@ -7,7 +7,7 @@ import { InstagramButton } from "./components/InstagramButton";
 import { CartButton } from "./components/CartButton";
 import { CartSheet } from "./components/CartSheet";
 import { CartProvider } from "./components/CartContext";
-import { Toaster } from "sonner@2.0.3";
+import { Toaster } from "sonner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { Heart, Sparkles, Truck } from "lucide-react";
 import lipGlossImage from "figma:asset/d65fada4b145f8b6fcc4eb9061517bd736809a2d.png";

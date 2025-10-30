@@ -16,7 +16,7 @@ import {
   PopoverTrigger,
 } from "./ui/popover";
 import { useCart } from "./CartContext";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 
 interface ProductCardProps {
   id: string;
