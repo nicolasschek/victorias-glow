@@ -11,44 +11,49 @@ import { Toaster } from "sonner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { Heart, Sparkles, Truck } from "lucide-react";
 
-// Product images from Unsplash
-const lipGlossImage = "https://images.unsplash.com/photo-1605381078451-a0672a91a4be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaXAlMjBnbG9zcyUyMG1ha2V1cHxlbnwxfHx8fDE3NjE3Nzc3NDB8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const bodyScrubImage = "https://images.unsplash.com/photo-1736947133766-c14511b54de9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib2R5JTIwc2NydWIlMjBzcGF8ZW58MXx8fHwxNzYxODAwMDM5fDA&ixlib=rb-4.1.0&q=80&w=1080";
-const bodyLotionImage = "https://images.unsplash.com/photo-1605204768985-81bad5fd9d79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib2R5JTIwbG90aW9uJTIwc2tpbmNhcmV8ZW58MXx8fHwxNzYxODQ1Njk1fDA&ixlib=rb-4.1.0&q=80&w=1080";
-const bodySplashImage = "https://images.unsplash.com/photo-1709100198813-b43c16cfee95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXJmdW1lJTIwYm9keSUyMHNwcmF5fGVufDF8fHx8MTc2MTg0NTY5NXww&ixlib=rb-4.1.0&q=80&w=1080";
-const teddyTintImage = "https://images.unsplash.com/photo-1725792826466-a7aa717da6e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5rJTIwY29zbWV0aWNzJTIwbWFrZXVwfGVufDF8fHx8MTc2MTgyMjc5N3ww&ixlib=rb-4.1.0&q=80&w=1080";
-const kitKarseellImage1 = "https://images.unsplash.com/photo-1610595426075-eed5a3f521ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwY2FyZSUyMHByb2R1Y3RzfGVufDF8fHx8MTc2MTc1MzI3OXww&ixlib=rb-4.1.0&q=80&w=1080";
-const kitKarseellImage2 = "https://images.unsplash.com/photo-1677541829506-2084c4bba14c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwbnV0cml0aW9uJTIwbWFza3xlbnwxfHx8fDE3NjE4NDU2OTd8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const lorealNutricionImage = "https://images.unsplash.com/photo-1677541829506-2084c4bba14c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwbnV0cml0aW9uJTIwbWFza3xlbnwxfHx8fDE3NjE4NDU2OTd8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const purpleHairMaskImage = "https://images.unsplash.com/photo-1606605415063-7301aec7b51c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwdXJwbGUlMjBzaGFtcG9vJTIwaGFpcnxlbnwxfHx8fDE3NjE4NDU2OTd8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const protectorTermicoImage = "https://images.unsplash.com/photo-1635766054474-ebaba5355bd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWF0JTIwcHJvdGVjdG9yJTIwc3ByYXl8ZW58MXx8fHwxNzYxODQ1Njk3fDA&ixlib=rb-4.1.0&q=80&w=1080";
-const kitVSImage1 = "https://images.unsplash.com/photo-1632841176063-5ba5d99ad12d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2aWN0b3JpYXMlMjBzZWNyZXQlMjBwcm9kdWN0c3xlbnwxfHx8fDE3NjE4NDU2OTd8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const kitVSImage2 = "https://images.unsplash.com/photo-1761479250468-b7b836e412ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBnaWZ0JTIwc2V0fGVufDF8fHx8MTc2MTcyOTQ1Mnww&ixlib=rb-4.1.0&q=80&w=1080";
-const kitVSImage3 = "https://images.unsplash.com/photo-1535980904816-5741c64232bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5rJTIwYmVhdXR5JTIwcHJvZHVjdHN8ZW58MXx8fHwxNzYxODQ1Njk4fDA&ixlib=rb-4.1.0&q=80&w=1080";
-const kitVSImage4 = "https://images.unsplash.com/photo-1667480099552-92bfee05685d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVycnklMjBmcmFncmFuY2UlMjBwZXJmdW1lfGVufDF8fHx8MTc2MTg0NTY5OHww&ixlib=rb-4.1.0&q=80&w=1080";
-const kitVSImage5 = "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3NtZXRpY3MlMjBzZXQlMjBwaW5rfGVufDF8fHx8MTc2MTg0NTY5OXww&ixlib=rb-4.1.0&q=80&w=1080";
-const cherrySplashImage1 = "https://images.unsplash.com/photo-1667480099552-92bfee05685d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVycnklMjBmcmFncmFuY2UlMjBwZXJmdW1lfGVufDF8fHx8MTc2MTg0NTY5OHww&ixlib=rb-4.1.0&q=80&w=1080";
-const cherrySplashImage2 = "https://images.unsplash.com/photo-1709100198813-b43c16cfee95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXJmdW1lJTIwYm9keSUyMHNwcmF5fGVufDF8fHx8MTc2MTg0NTY5NXww&ixlib=rb-4.1.0&q=80&w=1080";
-const cherrySplashImage3 = "https://images.unsplash.com/photo-1632841176063-5ba5d99ad12d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2aWN0b3JpYXMlMjBzZWNyZXQlMjBwcm9kdWN0c3xlbnwxfHx8fDE3NjE4NDU2OTd8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const cherrySplashImage4 = "https://images.unsplash.com/photo-1630313584556-bd51ec5f0bd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjBnaWZ0JTIwYm94fGVufDF8fHx8MTc2MTc2MTEzNHww&ixlib=rb-4.1.0&q=80&w=1080";
-const cherrySplashImage5 = "https://images.unsplash.com/photo-1535980904816-5741c64232bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5rJTIwYmVhdXR5JTIwcHJvZHVjdHN8ZW58MXx8fHwxNzYxODQ1Njk4fDA&ixlib=rb-4.1.0&q=80&w=1080";
-const cherrySplashImage6 = "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3NtZXRpY3MlMjBzZXQlMjBwaW5rfGVufDF8fHx8MTc2MTg0NTY5OXww&ixlib=rb-4.1.0&q=80&w=1080";
-const cherrySplashImage7 = "https://images.unsplash.com/photo-1761479250468-b7b836e412ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBnaWZ0JTIwc2V0fGVufDF8fHx8MTc2MTcyOTQ1Mnww&ixlib=rb-4.1.0&q=80&w=1080";
-const cherrySplashImage8 = "https://images.unsplash.com/photo-1630313584556-bd51ec5f0bd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjBnaWZ0JTIwYm94fGVufDF8fHx8MTc2MTc2MTEzNHww&ixlib=rb-4.1.0&q=80&w=1080";
-const fashionShowImage1 = "https://images.unsplash.com/photo-1632841176063-5ba5d99ad12d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2aWN0b3JpYXMlMjBzZWNyZXQlMjBwcm9kdWN0c3xlbnwxfHx8fDE3NjE4NDU2OTd8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const fashionShowImage2 = "https://images.unsplash.com/photo-1535980904816-5741c64232bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5rJTIwYmVhdXR5JTIwcHJvZHVjdHN8ZW58MXx8fHwxNzYxODQ1Njk4fDA&ixlib=rb-4.1.0&q=80&w=1080";
-const fashionShowImage3 = "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3NtZXRpY3MlMjBzZXQlMjBwaW5rfGVufDF8fHx8MTc2MTg0NTY5OXww&ixlib=rb-4.1.0&q=80&w=1080";
-const fashionShowImage4 = "https://images.unsplash.com/photo-1761479250468-b7b836e412ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBnaWZ0JTIwc2V0fGVufDF8fHx8MTc2MTcyOTQ1Mnww&ixlib=rb-4.1.0&q=80&w=1080";
-const karseellImage1 = "https://images.unsplash.com/photo-1610595426075-eed5a3f521ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwY2FyZSUyMHByb2R1Y3RzfGVufDF8fHx8MTc2MTc1MzI3OXww&ixlib=rb-4.1.0&q=80&w=1080";
-const karseellImage2 = "https://images.unsplash.com/photo-1677541829506-2084c4bba14c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwbnV0cml0aW9uJTIwbWFza3xlbnwxfHx8fDE3NjE4NDU2OTd8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const karseellOilImage1 = "https://images.unsplash.com/photo-1610595426075-eed5a3f521ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwY2FyZSUyMHByb2R1Y3RzfGVufDF8fHx8MTc2MTc1MzI3OXww&ixlib=rb-4.1.0&q=80&w=1080";
-const bodyLotionImage1 = "https://images.unsplash.com/photo-1605204768985-81bad5fd9d79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib2R5JTIwbG90aW9uJTIwc2tpbmNhcmV8ZW58MXx8fHwxNzYxODQ1Njk1fDA&ixlib=rb-4.1.0&q=80&w=1080";
-const bodySplashImage1 = "https://images.unsplash.com/photo-1709100198813-b43c16cfee95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXJmdW1lJTIwYm9keSUyMHNwcmF5fGVufDF8fHx8MTc2MTg0NTY5NXww&ixlib=rb-4.1.0&q=80&w=1080";
-const lessWhiteImage = "https://images.unsplash.com/photo-1725792826466-a7aa717da6e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5rJTIwY29zbWV0aWNzJTIwbWFrZXVwfGVufDF8fHx8MTc2MTgyMjc5N3ww&ixlib=rb-4.1.0&q=80&w=1080";
-const lessPinkImage = "https://images.unsplash.com/photo-1725792826466-a7aa717da6e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5rJTIwY29zbWV0aWNzJTIwbWFrZXVwfGVufDF8fHx8MTc2MTgyMjc5N3ww&ixlib=rb-4.1.0&q=80&w=1080";
-const lessBlackImage = "https://images.unsplash.com/photo-1605381078451-a0672a91a4be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaXAlMjBnbG9zcyUyMG1ha2V1cHxlbnwxfHx8fDE3NjE3Nzc3NDB8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const lessRedImage = "https://images.unsplash.com/photo-1605381078451-a0672a91a4be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaXAlMjBnbG9zcyUyMG1ha2V1cHxlbnwxfHx8fDE3NjE3Nzc3NDB8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const lessLilacImage = "https://images.unsplash.com/photo-1725792826466-a7aa717da6e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5rJTIwY29zbWV0aWNzJTIwbWFrZXVwfGVufDF8fHx8MTc2MTgyMjc5N3ww&ixlib=rb-4.1.0&q=80&w=1080";
+// Product images - Local images from /public/images/
+const teddyTintImage = "/images/teddy-tint.jpg";
+const bodyScrubImage = "/images/body-scrub.jpg";
+const kitKarseellImage1 = "/images/kit-karseell-1.jpg";
+const kitKarseellImage2 = "/images/kit-karseell-2.jpg";
+const lorealNutricionImage = "/images/loreal-nutricion.jpg";
+const purpleHairMaskImage = "/images/purple-hair-mask.jpg";
+const protectorTermicoImage = "/images/protector-termico.jpg";
+const karseellImage1 = "/images/karseell-mascarilla-1.jpg";
+const karseellImage2 = "/images/karseell-mascarilla-2.jpg";
+const karseellOilImage1 = "/images/karseell-aceite.jpg";
+const kitVSImage1 = "/images/kit-vs-1.jpg";
+const kitVSImage2 = "/images/kit-vs-2.jpg";
+const kitVSImage3 = "/images/kit-vs-3.jpg";
+const kitVSImage4 = "/images/kit-vs-4.jpg";
+const kitVSImage5 = "/images/kit-vs-5.jpg";
+const bodyLotionImage = "/images/body-lotion-vs.jpg";
+const bodyLotionImage1 = "/images/body-lotion-vs.jpg";
+const bodySplashImage = "/images/body-splash-vs.jpg";
+const bodySplashImage1 = "/images/body-splash-vs.jpg";
+
+// Images used for product variations - reusing main images
+const cherrySplashImage1 = "/images/body-splash-vs.jpg";
+const cherrySplashImage2 = "/images/kit-vs-1.jpg";
+const cherrySplashImage3 = "/images/kit-vs-2.jpg";
+const cherrySplashImage4 = "/images/kit-vs-3.jpg";
+const cherrySplashImage5 = "/images/kit-vs-4.jpg";
+const cherrySplashImage6 = "/images/kit-vs-5.jpg";
+const cherrySplashImage7 = "/images/body-lotion-vs.jpg";
+const cherrySplashImage8 = "/images/body-splash-vs.jpg";
+
+const fashionShowImage1 = "/images/kit-vs-1.jpg";
+const fashionShowImage2 = "/images/kit-vs-2.jpg";
+const fashionShowImage3 = "/images/kit-vs-3.jpg";
+const fashionShowImage4 = "/images/kit-vs-4.jpg";
+
+// Teddy Tint color variations - using main image
+const lipGlossImage = "/images/teddy-tint.jpg";
+const lessWhiteImage = "/images/teddy-tint.jpg";
+const lessPinkImage = "/images/teddy-tint.jpg";
+const lessBlackImage = "/images/teddy-tint.jpg";
+const lessRedImage = "/images/teddy-tint.jpg";
+const lessLilacImage = "/images/teddy-tint.jpg";
 
 // Mock product data
 const products = [
