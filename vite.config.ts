@@ -1,96 +1,66 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
-  import { defineConfig } from 'vite';
-  import react from '@vitejs/plugin-react-swc';
-  import path from 'path';
-
-  export default defineConfig({
-    plugins: [react()],
-    resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-      alias: {
-        'vaul@1.1.2': 'vaul',
-        'recharts@2.15.2': 'recharts',
-        'react-resizable-panels@2.1.7': 'react-resizable-panels',
-        'react-hook-form@7.55.0': 'react-hook-form',
-        'react-day-picker@8.10.1': 'react-day-picker',
-        'next-themes@0.4.6': 'next-themes',
-        'lucide-react@0.487.0': 'lucide-react',
-        'input-otp@1.4.2': 'input-otp',
-        'figma:asset/fefd3723a9c754b69cbe24229656c46f2d7296b7.png': path.resolve(__dirname, './src/assets/fefd3723a9c754b69cbe24229656c46f2d7296b7.png'),
-        'figma:asset/f9c85bca43825fdb813799f72137b121779fbe55.png': path.resolve(__dirname, './src/assets/f9c85bca43825fdb813799f72137b121779fbe55.png'),
-        'figma:asset/f3abae82db33d3c9ff6566e457f64b571cfc24f3.png': path.resolve(__dirname, './src/assets/f3abae82db33d3c9ff6566e457f64b571cfc24f3.png'),
-        'figma:asset/ecfcc31bff4cd872a91b66d0411787663ace3205.png': path.resolve(__dirname, './src/assets/ecfcc31bff4cd872a91b66d0411787663ace3205.png'),
-        'figma:asset/ec0c768acf907020f5ca7dfdbe01b6bf61b2316f.png': path.resolve(__dirname, './src/assets/ec0c768acf907020f5ca7dfdbe01b6bf61b2316f.png'),
-        'figma:asset/dd393092b36f9923f3be7c85e461d77c3b120db4.png': path.resolve(__dirname, './src/assets/dd393092b36f9923f3be7c85e461d77c3b120db4.png'),
-        'figma:asset/d77241bbb76dacedcfe1357dab0e4219dbf4bab3.png': path.resolve(__dirname, './src/assets/d77241bbb76dacedcfe1357dab0e4219dbf4bab3.png'),
-        'figma:asset/d65fada4b145f8b6fcc4eb9061517bd736809a2d.png': path.resolve(__dirname, './src/assets/d65fada4b145f8b6fcc4eb9061517bd736809a2d.png'),
-        'figma:asset/d1c8d8b9d791d50f8f78ae58b8983766b109942f.png': path.resolve(__dirname, './src/assets/d1c8d8b9d791d50f8f78ae58b8983766b109942f.png'),
-        'figma:asset/cd43bf838163bc114d651199b01f302e04a62dd9.png': path.resolve(__dirname, './src/assets/cd43bf838163bc114d651199b01f302e04a62dd9.png'),
-        'figma:asset/cac2716fd2bb76a061daf08c5d26781e0f0d2627.png': path.resolve(__dirname, './src/assets/cac2716fd2bb76a061daf08c5d26781e0f0d2627.png'),
-        'figma:asset/c9f6fd9a60325a61fb51434dd813cdf9e2439e9c.png': path.resolve(__dirname, './src/assets/c9f6fd9a60325a61fb51434dd813cdf9e2439e9c.png'),
-        'figma:asset/c8980a11f70455d3bf96f46603c9daebc9ceec73.png': path.resolve(__dirname, './src/assets/c8980a11f70455d3bf96f46603c9daebc9ceec73.png'),
-        'figma:asset/c4ff1abb0bb7792fb9348dc591543fadbfbea4d1.png': path.resolve(__dirname, './src/assets/c4ff1abb0bb7792fb9348dc591543fadbfbea4d1.png'),
-        'figma:asset/b520d6da8cba35e21123e4543cc8fab15f014823.png': path.resolve(__dirname, './src/assets/b520d6da8cba35e21123e4543cc8fab15f014823.png'),
-        'figma:asset/b17a5d970cc40347ebfd3cefb7892352bcf95378.png': path.resolve(__dirname, './src/assets/b17a5d970cc40347ebfd3cefb7892352bcf95378.png'),
-        'figma:asset/b09c8ebab024b8d4b2133eaf9d3ec9390f82dd84.png': path.resolve(__dirname, './src/assets/b09c8ebab024b8d4b2133eaf9d3ec9390f82dd84.png'),
-        'figma:asset/971c459c4ceb093fcbf9ab4d1790abda5e909492.png': path.resolve(__dirname, './src/assets/971c459c4ceb093fcbf9ab4d1790abda5e909492.png'),
-        'figma:asset/91c5b0aad9d97890a8a3682e2f93cc124b867581.png': path.resolve(__dirname, './src/assets/91c5b0aad9d97890a8a3682e2f93cc124b867581.png'),
-        'figma:asset/8f3164a7ce32f08622afc7a1ee5a5d5777c6e88a.png': path.resolve(__dirname, './src/assets/8f3164a7ce32f08622afc7a1ee5a5d5777c6e88a.png'),
-        'figma:asset/8ae1b77c0f91fe9dfea64ddb43f8a075f1aeaa8e.png': path.resolve(__dirname, './src/assets/8ae1b77c0f91fe9dfea64ddb43f8a075f1aeaa8e.png'),
-        'figma:asset/8836a185770d48ed064d3bd484376beafcd38586.png': path.resolve(__dirname, './src/assets/8836a185770d48ed064d3bd484376beafcd38586.png'),
-        'figma:asset/85e21e811994dea1cbca828f21b806498523e591.png': path.resolve(__dirname, './src/assets/85e21e811994dea1cbca828f21b806498523e591.png'),
-        'figma:asset/7c52323db91f076c0fed3009040fb6449a7017cc.png': path.resolve(__dirname, './src/assets/7c52323db91f076c0fed3009040fb6449a7017cc.png'),
-        'figma:asset/79da8a421c064b54a8d59f1806beaec135d62e1e.png': path.resolve(__dirname, './src/assets/79da8a421c064b54a8d59f1806beaec135d62e1e.png'),
-        'figma:asset/770d40965b3d14d3532a631671300e1b34ad02ae.png': path.resolve(__dirname, './src/assets/770d40965b3d14d3532a631671300e1b34ad02ae.png'),
-        'figma:asset/76ee809831883aaa217739c9698da72dbe8ce8be.png': path.resolve(__dirname, './src/assets/76ee809831883aaa217739c9698da72dbe8ce8be.png'),
-        'figma:asset/70c870811b7224b02204759cb5b050a418112667.png': path.resolve(__dirname, './src/assets/70c870811b7224b02204759cb5b050a418112667.png'),
-        'figma:asset/6a85cc7a0e069ad33208dd2ed15e96059e3669b3.png': path.resolve(__dirname, './src/assets/6a85cc7a0e069ad33208dd2ed15e96059e3669b3.png'),
-        'figma:asset/5992a74e1ccaf18b97b9bb6943bd1fe1f4648f65.png': path.resolve(__dirname, './src/assets/5992a74e1ccaf18b97b9bb6943bd1fe1f4648f65.png'),
-        'figma:asset/44a835728a3db86ca1b49868383edce033402b38.png': path.resolve(__dirname, './src/assets/44a835728a3db86ca1b49868383edce033402b38.png'),
-        'figma:asset/379435f5dfb5867613c3b9377d55853332dfc9ac.png': path.resolve(__dirname, './src/assets/379435f5dfb5867613c3b9377d55853332dfc9ac.png'),
-        'figma:asset/34f74d7808898ad813ad68286e84e357a7f2a56c.png': path.resolve(__dirname, './src/assets/34f74d7808898ad813ad68286e84e357a7f2a56c.png'),
-        'figma:asset/296e74c2ae67d1e6f1209b31cd1ec46f84beedc5.png': path.resolve(__dirname, './src/assets/296e74c2ae67d1e6f1209b31cd1ec46f84beedc5.png'),
-        'figma:asset/216a799a7b2788f6ac7d11c4f92bcfd3ae46ced7.png': path.resolve(__dirname, './src/assets/216a799a7b2788f6ac7d11c4f92bcfd3ae46ced7.png'),
-        'figma:asset/210d5ced6ded20fda1a1a7d876bdff929dc10da7.png': path.resolve(__dirname, './src/assets/210d5ced6ded20fda1a1a7d876bdff929dc10da7.png'),
-        'figma:asset/03fffa2c394037de2aa81a8b0d875ecd56e39e7e.png': path.resolve(__dirname, './src/assets/03fffa2c394037de2aa81a8b0d875ecd56e39e7e.png'),
-        'embla-carousel-react@8.6.0': 'embla-carousel-react',
-        'cmdk@1.1.1': 'cmdk',
-        'class-variance-authority@0.7.1': 'class-variance-authority',
-        '@radix-ui/react-tooltip@1.1.8': '@radix-ui/react-tooltip',
-        '@radix-ui/react-toggle@1.1.2': '@radix-ui/react-toggle',
-        '@radix-ui/react-toggle-group@1.1.2': '@radix-ui/react-toggle-group',
-        '@radix-ui/react-tabs@1.1.3': '@radix-ui/react-tabs',
-        '@radix-ui/react-switch@1.1.3': '@radix-ui/react-switch',
-        '@radix-ui/react-slot@1.1.2': '@radix-ui/react-slot',
-        '@radix-ui/react-slider@1.2.3': '@radix-ui/react-slider',
-        '@radix-ui/react-separator@1.1.2': '@radix-ui/react-separator',
-        '@radix-ui/react-select@2.1.6': '@radix-ui/react-select',
-        '@radix-ui/react-scroll-area@1.2.3': '@radix-ui/react-scroll-area',
-        '@radix-ui/react-radio-group@1.2.3': '@radix-ui/react-radio-group',
-        '@radix-ui/react-progress@1.1.2': '@radix-ui/react-progress',
-        '@radix-ui/react-popover@1.1.6': '@radix-ui/react-popover',
-        '@radix-ui/react-navigation-menu@1.2.5': '@radix-ui/react-navigation-menu',
-        '@radix-ui/react-menubar@1.1.6': '@radix-ui/react-menubar',
-        '@radix-ui/react-label@2.1.2': '@radix-ui/react-label',
-        '@radix-ui/react-hover-card@1.1.6': '@radix-ui/react-hover-card',
-        '@radix-ui/react-dropdown-menu@2.1.6': '@radix-ui/react-dropdown-menu',
-        '@radix-ui/react-dialog@1.1.6': '@radix-ui/react-dialog',
-        '@radix-ui/react-context-menu@2.2.6': '@radix-ui/react-context-menu',
-        '@radix-ui/react-collapsible@1.1.3': '@radix-ui/react-collapsible',
-        '@radix-ui/react-checkbox@1.1.4': '@radix-ui/react-checkbox',
-        '@radix-ui/react-avatar@1.1.3': '@radix-ui/react-avatar',
-        '@radix-ui/react-aspect-ratio@1.1.2': '@radix-ui/react-aspect-ratio',
-        '@radix-ui/react-alert-dialog@1.1.6': '@radix-ui/react-alert-dialog',
-        '@radix-ui/react-accordion@1.2.3': '@radix-ui/react-accordion',
-        '@': path.resolve(__dirname, './src'),
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss,
+        autoprefixer,
+      ],
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './'),
+    },
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    minify: 'terser',
+    cssCodeSplit: true,
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'ui-vendor': [
+            '@radix-ui/react-dialog', 
+            '@radix-ui/react-tabs', 
+            '@radix-ui/react-popover',
+            '@radix-ui/react-slot'
+          ],
+          'lucide': ['lucide-react'],
+        },
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.')
+          const ext = info[info.length - 1]
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
+            return `assets/images/[name]-[hash][extname]`
+          } else if (/woff|woff2|eot|ttf|otf/i.test(ext)) {
+            return `assets/fonts/[name]-[hash][extname]`
+          }
+          return `assets/[name]-[hash][extname]`
+        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
       },
     },
-    build: {
-      target: 'esnext',
-      outDir: 'build',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
     },
-    server: {
-      port: 3000,
-      open: true,
-    },
-  });
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'lucide-react'],
+  },
+})
