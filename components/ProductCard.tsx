@@ -533,7 +533,7 @@ export function ProductCard({ id, name, description, price, image, category, isN
                       id="notes-input"
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
-                      placeholder='Ej: "Sin caja", "Para regalo", etc.'
+                      placeholder="Escribe tu comentario."
                       className="min-h-[80px] border-2 border-gray-200 focus:border-[#C85A7C] focus:ring-[#C85A7C] resize-none"
                       maxLength={150}
                     />
