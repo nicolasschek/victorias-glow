@@ -15,6 +15,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "./ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+import { Textarea } from "./ui/textarea";
+import { Label } from "./ui/label";
 import { useCart } from "./CartContext";
 import { toast } from "sonner";
 
@@ -27,9 +36,10 @@ interface ProductCardProps {
   category: "Lencería" | "Body Splash" | "Loción" | "Maquillaje" | "Cuidado Corporal" | "Cuidado";
   isNew?: boolean;
   outOfStock?: boolean;
+  variants?: string[];
 }
 
-export function ProductCard({ id, name, description, price, image, category, isNew, outOfStock }: ProductCardProps) {
+export function ProductCard({ id, name, description, price, image, category, isNew, outOfStock, variants }: ProductCardProps) {
   const images = Array.isArray(image) ? image : [image];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -38,6 +48,8 @@ export function ProductCard({ id, name, description, price, image, category, isN
   const [quantity, setQuantity] = useState(1);
   const [cardQuantity, setCardQuantity] = useState(1);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState("");
+  const [notes, setNotes] = useState("");
   const { addItem } = useCart();
   
   const handleWhatsAppClick = () => {
@@ -72,6 +84,8 @@ export function ProductCard({ id, name, description, price, image, category, isN
   const handleCardClick = () => {
     setModalImageIndex(currentImageIndex);
     setQuantity(1); // Reset quantity when opening modal
+    setSelectedVariant(""); // Reset variant selection
+    setNotes(""); // Reset notes
     setIsModalOpen(true);
   };
 
@@ -91,6 +105,16 @@ export function ProductCard({ id, name, description, price, image, category, isN
     if (e) {
       e.stopPropagation();
     }
+    
+    // Validar que se haya seleccionado variante si es requerida
+    if (variants && variants.length > 0 && !selectedVariant) {
+      toast.error("Por favor, seleccioná una variante", {
+        description: "Es necesario elegir una opción antes de agregar al carrito.",
+        duration: 3000,
+      });
+      return;
+    }
+    
     const imageUrl = Array.isArray(image) ? image[0] : image;
     const qty = customQuantity || 1;
     
@@ -102,13 +126,26 @@ export function ProductCard({ id, name, description, price, image, category, isN
         price,
         image: imageUrl,
         category,
+        variant: selectedVariant || undefined,
+        notes: notes || undefined,
       });
     }
     
-    toast.success(`${qty} ${qty === 1 ? 'unidad' : 'unidades'} de ${name} ${qty === 1 ? 'agregada' : 'agregadas'} al carrito`, {
+    let successMessage = `${qty} ${qty === 1 ? 'unidad' : 'unidades'} de ${name}`;
+    if (selectedVariant) {
+      successMessage += ` (${selectedVariant})`;
+    }
+    successMessage += ` ${qty === 1 ? 'agregada' : 'agregadas'} al carrito`;
+    
+    toast.success(successMessage, {
       description: "Podés seguir comprando o ir al carrito para finalizar tu pedido.",
       duration: 3000,
     });
+    
+    // Resetear campos después de agregar
+    setIsModalOpen(false);
+    setSelectedVariant("");
+    setNotes("");
   };
 
   const increaseQuantity = () => {
@@ -343,15 +380,15 @@ export function ProductCard({ id, name, description, price, image, category, isN
 
       {/* Modal de Producto */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0" aria-describedby="product-description">
+        <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto p-0" aria-describedby="product-description">
           <div className="grid md:grid-cols-2 gap-0">
             {/* Columna de imágenes */}
-            <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 p-4 md:p-8 flex items-center justify-center">
-              <div className="relative w-full max-w-md">
+            <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 p-6 md:p-12 flex items-center justify-center min-h-[400px] md:min-h-[600px]">
+              <div className="relative w-full">
                 <ImageWithFallback
                   src={images[modalImageIndex]}
                   alt={`${name} - Imagen ${modalImageIndex + 1}`}
-                  className="w-full h-auto object-contain rounded-lg"
+                  className="w-full h-auto object-contain rounded-lg max-h-[350px] md:max-h-[550px]"
                 />
                 
                 {/* Navegación de imágenes en modal */}
@@ -384,7 +421,7 @@ export function ProductCard({ id, name, description, price, image, category, isN
                         <button
                           key={index}
                           onClick={() => goToModalImage(index)}
-                          className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-[#C85A7C] ${
+                          className={`w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-[#C85A7C] ${
                             index === modalImageIndex
                               ? "border-[#C85A7C] scale-110"
                               : "border-gray-200 hover:border-gray-300"
@@ -442,6 +479,50 @@ export function ProductCard({ id, name, description, price, image, category, isN
                   <span className="text-sm text-gray-500 block mb-1">Precio</span>
                   <span className="text-3xl text-[#C85A7C]">{price}</span>
                 </div>
+
+                {/* Selector de Variantes */}
+                {variants && variants.length > 0 && !outOfStock && (
+                  <div className="space-y-2">
+                    <Label htmlFor="variant-select" className="text-sm text-gray-700">
+                      Seleccionar variante <span className="text-red-500">*</span>
+                    </Label>
+                    <Select value={selectedVariant} onValueChange={setSelectedVariant}>
+                      <SelectTrigger 
+                        id="variant-select"
+                        className="w-full border-2 border-gray-200 focus:border-[#C85A7C] focus:ring-[#C85A7C] min-h-[44px]"
+                      >
+                        <SelectValue placeholder="Elegir opción..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {variants.map((variant, index) => (
+                          <SelectItem key={index} value={variant}>
+                            {variant}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
+
+                {/* Campo de Notas Adicionales */}
+                {!outOfStock && (
+                  <div className="space-y-2">
+                    <Label htmlFor="notes-input" className="text-sm text-gray-700">
+                      Notas adicionales (opcional)
+                    </Label>
+                    <Textarea
+                      id="notes-input"
+                      value={notes}
+                      onChange={(e) => setNotes(e.target.value)}
+                      placeholder='Ej: "Sin caja", "Para regalo", etc.'
+                      className="min-h-[80px] border-2 border-gray-200 focus:border-[#C85A7C] focus:ring-[#C85A7C] resize-none"
+                      maxLength={150}
+                    />
+                    <p className="text-xs text-gray-500 text-right">
+                      {notes.length}/150 caracteres
+                    </p>
+                  </div>
+                )}
 
                 {/* Selector de Cantidad */}
                 {!outOfStock && (

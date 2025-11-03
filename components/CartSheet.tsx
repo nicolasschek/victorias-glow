@@ -11,16 +11,23 @@ interface CartSheetProps {
 }
 
 export function CartSheet({ open, onOpenChange }: CartSheetProps) {
-  const { items, removeItem, updateQuantity, clearCart, getTotalItems } = useCart();
+  const { items, removeItem, updateQuantity, clearCart, getTotalItems, getUniqueId } = useCart();
 
   const handleWhatsAppCheckout = () => {
     if (items.length === 0) return;
 
     const message = items
-      .map(
-        (item) =>
-          `• ${item.name} (x${item.quantity}) - ${item.price}`
-      )
+      .map((item) => {
+        let itemText = `• ${item.name}`;
+        if (item.variant) {
+          itemText += ` - ${item.variant}`;
+        }
+        itemText += ` (x${item.quantity}) - ${item.price}`;
+        if (item.notes) {
+          itemText += `\n  Nota: ${item.notes}`;
+        }
+        return itemText;
+      })
       .join("\n");
 
     const fullMessage = encodeURIComponent(
@@ -76,7 +83,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
               <div className="space-y-4">
                 {items.map((item) => (
                   <div
-                    key={item.id}
+                    key={getUniqueId(item)}
                     className="flex gap-4 p-4 bg-pink-50/50 rounded-lg hover:bg-pink-50 transition-colors"
                   >
                     <div className="w-20 h-20 flex-shrink-0 bg-white rounded-lg overflow-hidden">
@@ -91,6 +98,16 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                       <h4 className="text-sm text-gray-800 mb-1 line-clamp-2">
                         {item.name}
                       </h4>
+                      {item.variant && (
+                        <p className="text-xs text-gray-600 mb-1">
+                          <span className="font-medium">Variante:</span> {item.variant}
+                        </p>
+                      )}
+                      {item.notes && (
+                        <p className="text-xs text-gray-600 mb-1 line-clamp-1" title={item.notes}>
+                          <span className="font-medium">Nota:</span> {item.notes}
+                        </p>
+                      )}
                       <Badge variant="secondary" className="text-xs mb-2">
                         {item.category}
                       </Badge>
@@ -99,7 +116,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
 
                     <div className="flex flex-col items-end justify-between">
                       <button
-                        onClick={() => removeItem(item.id)}
+                        onClick={() => removeItem(getUniqueId(item))}
                         className="text-gray-400 hover:text-red-500 transition-colors p-1 rounded-full hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-500"
                         aria-label={`Eliminar ${item.name} del carrito`}
                       >
@@ -108,7 +125,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
 
                       <div className="flex items-center gap-2 bg-white rounded-full border border-gray-200 p-1">
                         <button
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          onClick={() => updateQuantity(getUniqueId(item), item.quantity - 1)}
                           className="text-gray-600 hover:text-[#C85A7C] transition-colors p-1 rounded-full hover:bg-pink-50 focus:outline-none focus:ring-2 focus:ring-[#C85A7C] disabled:opacity-50 disabled:cursor-not-allowed"
                           aria-label={`Disminuir cantidad de ${item.name}`}
                           disabled={item.quantity <= 1}
@@ -119,7 +136,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                           {item.quantity}
                         </span>
                         <button
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          onClick={() => updateQuantity(getUniqueId(item), item.quantity + 1)}
                           className="text-gray-600 hover:text-[#C85A7C] transition-colors p-1 rounded-full hover:bg-pink-50 focus:outline-none focus:ring-2 focus:ring-[#C85A7C]"
                           aria-label={`Aumentar cantidad de ${item.name}`}
                         >

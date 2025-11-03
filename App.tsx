@@ -202,6 +202,19 @@ const cityBronzerImage = "/images/city-bronzer-maybelline.jpg";
 const serumRevitalifNocheImage = "/images/serum-revitalif-noche-loreal-paris.jpg";
 const rimmelColossal1Image = "/images/rimmel-the-colossal-maybelline-1.jpg";
 const rimmelColossal2Image = "/images/rimmel-the-colossal-maybelline-2.jpg";
+const vanillaRebelImage = "/images/body-splash-vs-2-vanilla-rebel.jpg";
+const decadentPlumImage = "/images/body-splash-vs-3-decadent-plum.jpg";
+const pistachioCremeImage = "/images/body-splash-vs-4-pistachio-creme.jpg";
+const vanillaCashmereImage = "/images/body-splash-vs-5-vanilla-cashmere.jpg";
+const sugaredPetalsImage = "/images/body-splash-vs-6-sugared-petals.jpg";
+const vanillaLaceImage = "/images/body-splash-vs-7-vanilla-lace.jpg";
+const amberAperitifImage = "/images/body-splash-vs-8-amber-aperitif.jpg";
+const twilightAmberBerryImage = "/images/body-splash-vs-9-twilight-amber-berry.jpg";
+const dreamyAppleOrchardImage = "/images/body-splash-vs-10-dreamy-apple-orchard.jpg";
+const cherryDesireImage = "/images/body-splash-vs-11-cherry-desire.jpg";
+const pureSeductionVSImage = "/images/body-splash-vs-12-pure-seduction.jpg";
+const bareVanillaVSImage = "/images/body-splash-vs-13-bare-vanilla.jpg";
+const velvetPetalsVSImage = "/images/body-splash-vs-14-velvet-petals.jpg";
 
 // Mock product data
 const products = [
@@ -259,6 +272,7 @@ const products = [
     image: [kitVSImage1, kitVSImage2, kitVSImage3, kitVSImage4, kitVSImage5],
     category: "Fragancias" as const,
     isNew: true,
+    variants: ["Bare Vanilla", "Love Spell", "Velvet Petals", "Pure Seduction"],
   },
   {
     id: "18",
@@ -284,8 +298,9 @@ const products = [
     description: "Lociones corporales Victoria's Secret en presentación clásica y shimmer. Fragancias variadas incluyendo Velvet Petals, Midnight Indulge, Passion Petals y más. Hidratación intensa con brillo opcional. 236ml.",
     price: "$35.000",
     image: [bodyLotionImage1],
-    category: "Cuidado" as const,
+    category: "Fragancias" as const,
     isNew: true,
+    variants: ["Velvet Petals", "Midnight Indulge", "Passion Petals", "Bare Vanilla", "Pure Seduction", "Aqua Kiss", "Romantic", "Coconut Milk & Rose"],
   },
   {
     id: "21",
@@ -295,6 +310,7 @@ const products = [
     image: [bodySplashImage1],
     category: "Fragancias" as const,
     isNew: true,
+    variants: ["Lavender & Vanilla", "Pure Seduction", "Aqua Kiss", "Romantic", "Coconut Milk & Rose", "Bare Vanilla", "Love Spell", "Velvet Petals"],
   },
   {
     id: "6",
@@ -458,6 +474,7 @@ const products = [
     image: [bombshellVS1Image, bombshellVS2Image, bombshellVS3Image, bombshellVS4Image, bombshellVS5Image],
     category: "Fragancias" as const,
     isNew: true,
+    variants: ["Bombshell Intense", "Bombshell Original", "Bombshell Paradise", "Bombshell Magic"],
   },
   {
     id: "117",
@@ -566,15 +583,17 @@ const products = [
     image: [bodyMistPink1Image, bodyMistPink2Image, bodyMistPink3Image, bodyMistPink4Image, bodyMistPink5Image, bodyMistPink6Image, bodyMistPink7Image, bodyMistPink8Image, bodyMistPink9Image, bodyMistPink10Image],
     category: "Fragancias" as const,
     isNew: true,
+    variants: ["Fresh & Clean", "Warm & Cozy", "Sun Kissed", "Chill Coconut", "Beach Flower", "Cool & Bright", "Sweet & Flirty"],
   },
   {
     id: "129",
     name: "Lotion BombShell Victoria´s Secret",
-    description: "Envuélvete en tu fragancia favorita. Nuestra loción de rápida absorción y nutritiva para la piel añade el toque perfecto de aroma. Potente y rico, Bombshell Intense es una mezcla decadente de peonía roja y frutas exuberantes. Consejo: Para una experiencia de fragancia de larga duración, combínala con Eau de Parfum o Fine Fragrance Mist a juego.",
+    description: "Envuélvete en tu fragancia favorita. Nuestra loción de rápida absorción y nutritiva para la piel añade el toque perfecto de aroma. Potente y rico, Bombshell Intense es una mezcla decadente de peonía roja y frutas exuberosas. Consejo: Para una experiencia de fragancia de larga duración, combínala con Eau de Parfum o Fine Fragrance Mist a juego.",
     price: "$35.000",
     image: [lotionBombshellVS1Image, lotionBombshellVS2Image],
     category: "Fragancias" as const,
     isNew: true,
+    variants: ["Bombshell Intense", "Bombshell Original", "Bombshell Paradise"],
   },
   {
     id: "130",
@@ -1196,6 +1215,136 @@ const products = [
     image: [rimmelColossal1Image, rimmelColossal2Image],
     category: "Maquillaje" as const,
     isNew: true,
+  },
+  {
+    id: "199",
+    name: "VANILLA REBEL Victoria's Secret",
+    description: "Descubrí el encanto de Vanilla Rebel, una edición limitada que te envuelve en un aura de misterio y sofisticación. Este body splash combina la calidez de la vainilla gourmand con un toque ahumado y sensual, creando un aroma irresistible y único. Desde la primera aplicación, sentirás la suave salida de seda de vainilla y sándalo cremoso, que da paso a un corazón de orquídea brumosa. Finalmente, su fondo de neblina de ámbar y almizcle sensual deja una estela cautivadora que perdura. Ideal para quienes buscan un perfume que combine atractivo y personalidad, Vanilla Rebel es el aliado perfecto para destacar en cada momento.",
+    price: "$35.000",
+    image: vanillaRebelImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "200",
+    name: "DECADENT PLUM Victoria's Secret",
+    description: "Decadent Plum huele a una combinación de fruta, flores y notas amaderadas. Sus notas principales son ciruela, flor de granado, dalia y sándalo, que crean un aroma dulce, floral y cálido.",
+    price: "$35.000",
+    image: decadentPlumImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "201",
+    name: "PISTACHIO CREME Victoria's Secret",
+    description: "Victoria's Secret Pistachio Crème es una fragancia deliciosa y envolvente que ofrece una mezcla de notas cremosas y dulces, perfectas para quienes disfrutan de los aromas suaves pero indulgentes. Con una base rica en pistacho, combinada con toques de crema y vainilla, este body splash crea una experiencia sensorial cálida y reconfortante, ideal para quienes buscan una fragancia lujosa y delicada que los envuelva durante todo el día.",
+    price: "$35.000",
+    image: pistachioCremeImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "202",
+    name: "VANILLA CASHMERE Victoria's Secret",
+    description: "Descubrí la suavidad y la riqueza de la bruma corporal Vanilla Cashmere. Esta dulce fragancia envuelve tus sentidos en una combinación de notas de lujosa vainilla, pétalos de almohada y merengue batido. Su aroma es ideal para quienes buscan un toque dulce y envolvente que perdura a lo largo del día.",
+    price: "$35.000",
+    image: vanillaCashmereImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "203",
+    name: "SUGARED PETALS Victoria's Secret",
+    description: "Delicias dulces llenan el menú mientras aromas de pistacho, caramelo y vainilla inundan la habitación y cautivan tus sentidos. Combínalo con la loción aromática a juego.",
+    price: "$35.000",
+    image: sugaredPetalsImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "204",
+    name: "VANILLA LACE Victoria's Secret",
+    description: "Vanilla Lace es una fragancia corporal cálida, dulce y reconfortante. Se centra en una vainilla cremosa con matices florales suaves y un fondo ligeramente amaderado. Es ideal para quienes aman los aromas intensamente dulces y envolventes, especialmente en épocas frescas.",
+    price: "$35.000",
+    image: vanillaLaceImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "205",
+    name: "AMBER APERITIF Victoria's Secret",
+    description: "Dulce, cremoso y elegante. Tiene ese toque a caramelo con un fondo cálido de ámbar, y virutas de chocolate.",
+    price: "$35.000",
+    image: amberAperitifImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "206",
+    name: "TWILIGHT AMBER BERRY Victoria's Secret",
+    description: "Twilight Amber Berry de Victoria's Secret es una fragancia sofisticada que combina lo frutal y lo cálido en una mezcla irresistible. Su aroma abre con bayas jugosas que aportan frescura y dulzura, envueltas en un fondo de ámbar cálido y envolvente que le da un toque elegante y sensual. Su fórmula ligera refresca la piel y deja un delicado velo perfumado, ideal para usar de día o de noche. Perfecto para quienes buscan un aroma femenino, intenso y cautivador.",
+    price: "$35.000",
+    image: twilightAmberBerryImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "207",
+    name: "DREAMY APPLE ORCHARD Victoria's Secret",
+    description: "Crujiente y delicioso. Un aire fresco que despierta. Huele a recolección de manzanas, flor de manzano, rosa silvestre, fresca brisa otoñal...",
+    price: "$35.000",
+    image: dreamyAppleOrchardImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "208",
+    name: "CHERRY DESIRE Victoria's Secret",
+    description: "Cherry Desire, la mezcla perfecta de cereza, licor y un toque amaderado que no pasa desapercibido. ¿te atreves a probarlo?",
+    price: "$35.000",
+    image: cherryDesireImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "209",
+    name: "PURE SEDUCTION Victoria's Secret",
+    description: "Es la combinación perfecta entre cítrico y dulce. Ninguno de los aromas se sobrepone al otro. ciruela roja y fresas. Frutal, dulce.",
+    price: "$35.000",
+    image: pureSeductionVSImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "210",
+    name: "BARE VANILLA Victoria's Secret",
+    description: "Una vainilla elegante, seductora y sobretodo reconfortante, se siente como un abrazo cálido y dulce. Acompañado de una crema perfumada dura horas en la piel y es perfecta para hacer layering y darle un toque dulce a cualquier perfume.",
+    price: "$35.000",
+    image: bareVanillaVSImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
+  },
+  {
+    id: "211",
+    name: "VELVET PETALS Victoria's Secret",
+    description: "Las notas acarameladas de Pera Rubí, Jazmín Opulento y Ámbar Radiante añaden un toque de energía deslumbrante. Femenino y delicado, floral y chocolatoso.",
+    price: "$35.000",
+    image: velvetPetalsVSImage,
+    category: "Fragancias" as const,
+    isNew: true,
+    variants: ["Body Splash", "Body Lotion"],
   },
 ];
 
