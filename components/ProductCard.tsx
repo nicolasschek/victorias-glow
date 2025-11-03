@@ -383,12 +383,12 @@ export function ProductCard({ id, name, description, price, image, category, isN
         <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto p-0" aria-describedby="product-description">
           <div className="grid md:grid-cols-2 gap-0">
             {/* Columna de imágenes */}
-            <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 p-6 md:p-8 flex flex-col items-center justify-center min-h-[400px] md:min-h-[600px]">
+            <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 p-6 md:p-12 flex flex-col items-center justify-center min-h-[400px] md:min-h-[700px]">
               <div className="relative w-full flex-1 flex items-center justify-center">
                 <ImageWithFallback
                   src={images[modalImageIndex]}
                   alt={`${name} - Imagen ${modalImageIndex + 1}`}
-                  className="w-full h-auto object-contain rounded-lg max-h-[350px] md:max-h-[500px]"
+                  className="w-full h-auto object-contain rounded-lg max-h-[350px] md:max-h-[650px]"
                 />
                 
                 {/* Navegación de imágenes en modal */}
