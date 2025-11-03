@@ -13,6 +13,20 @@ interface CartSheetProps {
 export function CartSheet({ open, onOpenChange }: CartSheetProps) {
   const { items, removeItem, updateQuantity, clearCart, getTotalItems, getUniqueId } = useCart();
 
+  // Función para calcular el total
+  const calculateTotal = () => {
+    return items.reduce((total, item) => {
+      // Extraer el número del precio (ej: "$22.000" -> 22000)
+      const priceNumber = parseInt(item.price.replace(/\D/g, ''), 10);
+      return total + (priceNumber * item.quantity);
+    }, 0);
+  };
+
+  // Función para formatear el precio
+  const formatPrice = (price: number) => {
+    return `$${price.toLocaleString('es-AR')}`;
+  };
+
   const handleWhatsAppCheckout = () => {
     if (items.length === 0) return;
 
@@ -28,10 +42,13 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
         }
         return itemText;
       })
-      .join("\n");
+      .join("\n\n");
+
+    const total = calculateTotal();
+    const formattedTotal = formatPrice(total);
 
     const fullMessage = encodeURIComponent(
-      `Hola! Me gustaría consultar por los siguientes productos:\n\n${message}\n\n¿Están disponibles?`
+      `Hola! Me gustaría consultar por los siguientes productos:\n\n${message}\n\n\n*PRESUPUESTO TOTAL: ${formattedTotal}*\n¿Están disponibles?`
     );
 
     window.open(
@@ -151,6 +168,14 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
 
             {/* Footer con acciones */}
             <div className="border-t px-6 py-4 space-y-3 bg-white">
+              {/* Total */}
+              <div className="bg-pink-50 rounded-lg p-4 border-2 border-pink-200">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-700">Presupuesto Total:</span>
+                  <span className="text-xl text-[#C85A7C]">{formatPrice(calculateTotal())}</span>
+                </div>
+              </div>
+
               <button
                 onClick={clearCart}
                 className="w-full text-sm text-gray-600 hover:text-red-500 transition-colors py-2 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-lg"
