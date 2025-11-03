@@ -12,7 +12,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { Heart, Sparkles, Truck } from "lucide-react";
 
 // Product images - Local images from /public/images/
-const teddyTintImage = "/images/teddy-tint.jpg";
+const teddyTint1Image = "/images/teddy-tint-1.jpg";
+const teddyTint2Image = "/images/teddy-tint-2.jpg";
 const bodyScrubImage = "/images/body-scrub.jpg";
 const kitKarseellImage1 = "/images/kit-karseell-1.jpg";
 const kitKarseellImage2 = "/images/kit-karseell-2.jpg";
@@ -35,10 +36,13 @@ const bodySplashImage1 = "/images/body-splash-vs.jpg";
 // Nuevos productos - Imágenes
 const rimelFalsiesSurrealImage = "/images/rimel-the-falsies-surreal.jpg";
 const sunkisserBlushImage = "/images/sunkisser-blush.jpg";
-const baseFitMeImage = "/images/base-liquida-fit-me.jpg";
+const baseFitMeImage1 = "/images/base-liquida-fit-me-1.jpg";
+const baseFitMeImage2 = "/images/base-liquida-fit-me-2.jpg";
+const baseFitMeImage3 = "/images/base-liquida-fit-me-3.jpg";
 const labialInfalibleLorealImage = "/images/labial-infalible-loreal-paris.jpg";
 const cremaPeinarLorealImage = "/images/crema-para-peinar-loreal-paris.jpg";
-const rimelAirVolumenImage = "/images/rimmel-air-volumen-loreal-paris.jpg";
+const rimelAirVolumen1Image = "/images/rimmel-air-volumen-loreal-paris-1.jpg";
+const rimelAirVolumen2Image = "/images/rimmel-air-volumen-loreal-paris-2.jpg";
 const lipLatexImage = "/images/lip-latex-rimel-london.jpg";
 const labialThriliSeekerImage = "/images/labial-thrili-seeker.jpg";
 const lipOilImage = "/images/lip-oil-oh-my-gloss.jpg";
@@ -48,16 +52,35 @@ const serumAntiManchasImage = "/images/serum-anti-manchas-loreal-paris.jpg";
 const gelMiselarNiveaImage = "/images/gel-miselar-rose-care-nivea.jpg";
 const serumCicatricureImage = "/images/serum-facial-cicatricure.jpg";
 const paletaCityMiniImage = "/images/paleta-the-city-mini-maybelline.jpg";
-const labialMateInkImage = "/images/labial-mate-ink-maybelline.jpg";
-const bombshellVSImage = "/images/bombshell-victorias-secret.jpg";
+const labialMateInkImage1 = "/images/labial-mate-ink-maybelline-1.jpg";
+const labialMateInkImage2 = "/images/labial-mate-ink-maybelline-2.jpg";
+const labialMateInkImage3 = "/images/labial-mate-ink-maybelline-3.jpg";
+const labialMateInkImage4 = "/images/labial-mate-ink-maybelline-4.jpg";
+const labialMateInkImage5 = "/images/labial-mate-ink-maybelline-5.jpg";
+const labialMateInkImage6 = "/images/labial-mate-ink-maybelline-6.jpg";
+const labialMateInkImage7 = "/images/labial-mate-ink-maybelline-7.jpg";
+const labialMateInkImage8 = "/images/labial-mate-ink-maybelline-8.jpg";
+const labialMateInkImage9 = "/images/labial-mate-ink-maybelline-9.jpg";
+const labialMateInkImage10 = "/images/labial-mate-ink-maybelline-10.jpg";
+const labialMateInkImage11 = "/images/labial-mate-ink-maybelline-11.jpg";
+const labialMateInkImage12 = "/images/labial-mate-ink-maybelline-12.jpg";
+const bombshellVS1Image = "/images/bombshell-victorias-secret-1.jpg";
+const bombshellVS2Image = "/images/bombshell-victorias-secret-2.jpg";
+const bombshellVS3Image = "/images/bombshell-victorias-secret-3.jpg";
+const bombshellVS4Image = "/images/bombshell-victorias-secret-4.jpg";
+const bombshellVS5Image = "/images/bombshell-victorias-secret-5.jpg";
 const gelAcidoHialuronicoImage = "/images/gel-acido-hialuronico-loreal-paris.jpg";
 const wonderfullRimmelImage = "/images/wonderfull-rimmel-london.jpg";
-const rimelSkyHighImage = "/images/rimmel-sky-high-maybelline.jpg";
+const rimelSkyHighImage1 = "/images/rimmel-sky-high-maybelline-1.jpg";
+const rimelSkyHighImage2 = "/images/rimmel-sky-high-maybelline-2.jpg";
 const serumExpressAclaraDiaImage = "/images/serum-express-aclara-dia-garnier.jpg";
 const goldKeratinaImage = "/images/gold-keratina-karseell.jpg";
 const delineadorLifterImage = "/images/delineador-lifter-liner-maybelline.jpg";
 const baseSuperstayLumiImage = "/images/base-superstay-lumimatte-maybelline.jpg";
-const correctorOjerasFitMeImage = "/images/corrector-de-ojeras-fit-me-maybelline.jpg";
+const correctorOjerasFitMeImage1 = "/images/corrector-de-ojeras-fit-me-maybelline-1.jpg";
+const correctorOjerasFitMeImage2 = "/images/corrector-de-ojeras-fit-me-maybelline-2.jpg";
+const correctorOjerasFitMeImage3 = "/images/corrector-de-ojeras-fit-me-maybelline-3.jpg";
+const correctorOjerasFitMeImage4 = "/images/corrector-de-ojeras-fit-me-maybelline-4.jpg";
 const gelFacialCicatricureImage = "/images/gel-facial-cicatricure.jpg";
 const serumFacialDermaglos1Image = "/images/serum-facial-dermaglos-1.jpg";
 const serumFacialDermaglos2Image = "/images/serum-facial-dermaglos-2.jpg";
@@ -81,7 +104,11 @@ const baseSuperstayAWImage = "/images/base-liquida-superstay-aw-maybelline.jpg";
 const serumRevitalifAHImage = "/images/serum-revitalif-ah-loreal-paris.jpg";
 const niveaCremaEssentialImage = "/images/nivea-crema-essential-24.jpg";
 const aguaRosasNiveaImage = "/images/agua-de-rosas-nivea.jpg";
-const aguaMicelarGarnierImage = "/images/agua-micelar-garnier.jpg";
+const aguaMicelarGarnier1Image = "/images/agua-micelar-garnier-1.jpg";
+const aguaMicelarGarnier2Image = "/images/agua-micelar-garnier-2.jpg";
+const aguaMicelarGarnier3Image = "/images/agua-micelar-garnier-3.jpg";
+const aguaMicelarGarnier4Image = "/images/agua-micelar-garnier-4.jpg";
+const aguaMicelarGarnier5Image = "/images/agua-micelar-garnier-5.jpg";
 const proRetinolLorealImage = "/images/pro-retinol-loreal-paris.jpg";
 const gelDuchaVS1Image = "/images/gel-ducha-vs-1.jpg";
 const gelDuchaVS2Image = "/images/gel-ducha-vs-2.jpg";
@@ -95,7 +122,8 @@ const glycolicBrightImage = "/images/glycolic-bright-loreal-paris.jpg";
 const expressAclaraGarnierImage = "/images/express-aclara-garnier.jpg";
 const serumOjosRevitalifImage = "/images/serum-ojos-revitalif-loreal-paris.jpg";
 const rimmelElectroBlackImage = "/images/rimmel-electro-black-maybelline.jpg";
-const brilliantEyesImage = "/images/brilliant-eyes-loreal-paris.jpg";
+const brilliantEyes1Image = "/images/brilliant-eyes-loreal-paris-1.jpg";
+const brilliantEyes2Image = "/images/brilliant-eyes-loreal-paris-2.jpg";
 const rimmelSkyHighBlackImage = "/images/rimmel-sky-high-black-maybelline.jpg";
 const bodyOilJojobaImage = "/images/body-oil-jojoba-vs.jpg";
 const gelDespigmentanteImage = "/images/gel-despigmentante-dermaglos.jpg";
@@ -116,7 +144,8 @@ const serumUVDefenderImage = "/images/serum-uv-defender-loreal-paris.jpg";
 const oleoSerumDoveImage = "/images/oleo-serum-dove.jpg";
 const kitTravelKarseellImage = "/images/kit-travel-karseell.jpg";
 const correctorTrueMatchImage = "/images/corrector-true-match-loreal-paris.jpg";
-const baseFitMe2Image = "/images/base-fit-me-maybelline.jpg";
+const baseFitMe2Image1 = "/images/base-fit-me-maybelline-1.jpg";
+const baseFitMe2Image2 = "/images/base-fit-me-maybelline-2.jpg";
 const correctorSuperstayAWImage = "/images/corrector-superstay-aw-maybelline.jpg";
 const baseLastingFinishImage = "/images/base-lasting-finish-rimmel-london.jpg";
 const serumGlycolicGlossImage = "/images/serum-glycolic-gloss-loreal-paris.jpg";
@@ -160,8 +189,8 @@ const aguaMicelarBifasicaImage = "/images/agua-micelar-bifasica-loreal-paris.jpg
 const baseSkinInk1Image = "/images/base-skin-ink-loreal-paris-1.jpg";
 const baseSkinInk2Image = "/images/base-skin-ink-loreal-paris-2.jpg";
 const shampooMatizadorImage = "/images/shampoo-matizador-karseell.jpg";
-const labialInfalibleLoreal1Image = "/images/labial-infallible-loreal-paris-1.jpg";
-const labialInfalibleLoreal2Image = "/images/labial-infallible-loreal-paris-2.jpg";
+const labialInfalibleLoreal1Image = "/images/labial-infalible-loreal-paris-1.jpg";
+const labialInfalibleLoreal2Image = "/images/labial-infalible-loreal-paris-2.jpg";
 const delineadorHyperPreciseImage = "/images/delineador-hyper-precise-maybelline.jpg";
 const rimmelFireWorkImage = "/images/rimmel-fire-work-maybelline.jpg";
 const rimmelGreatLashImage = "/images/rimmel-great-lash-maybelline.jpg";
@@ -177,7 +206,7 @@ const products = [
     name: "Teddy Tint Maybelline",
     description: "Labial líquido con efecto matte de larga duración. 12H de color intenso, no transfiere y acabado suave. Variedad de tonos disponibles.",
     price: "$22.000",
-    image: teddyTintImage,
+    image: [teddyTint1Image, teddyTint2Image],
     category: "Maquillaje" as const,
     isNew: true,
   },
@@ -296,7 +325,7 @@ const products = [
     name: "Base Líquida Fit Me Vitamina C de Maybelline",
     description: "Fit Me Fresh Tint, la nueva base de maquillaje de larga duración con alta cobertura y protector solar FPS 50, creada para todo tipo de piel y cuenta con ingredientes que controlan la oleosidad de la piel.",
     price: "$20.000",
-    image: baseFitMeImage,
+    image: [baseFitMeImage1, baseFitMeImage2, baseFitMeImage3],
     category: "Maquillaje" as const,
     isNew: true,
   },
@@ -305,7 +334,7 @@ const products = [
     name: "Labial Infalible de L´oreal Paris",
     description: "Labial líquido con acabado mate para tener un color duradero hasta por 16 horas. Fórmula con ácido hialurónico para una sensación cómoda y ligera en los labios. El nuevo labial líquido que resiste a todo y cuida tus labios. Infaillible Matte Resistance se presenta en 10 tonos para un color mate con pigmentos en polvo que dura hasta 16 horas. Su fórmula enriquecida con ácido hialurónico hidrata los labios y los mantiene cómodos durante todo el día. Fácil de aplicar, es a prueba de agua y resistente a la transferencia.",
     price: "$19.000",
-    image: labialInfalibleLorealImage,
+    image: [labialInfalibleLoreal1Image, labialInfalibleLoreal2Image],
     category: "Maquillaje" as const,
     isNew: true,
   },
@@ -323,7 +352,7 @@ const products = [
     name: "Rimmel Air Volumen de L´oreal Paris",
     description: "La máscara de pestañas Air Volume 30H de L'Oréal Paris, ahora con una duración muy prolongada de hasta 30 horas. A su vez, este producto eleva las pestañas gracias a una tecnología de volumen de aire. Este acaba separando las pestañas dejándolas con un aspecto natural, más densas y con mucho volumen sin apelmazarlas. Además, su fórmula cremosa, liviana y de larga duración brinda una apariencia no solo natural, sino a prueba de escamas, gracias a la combinación única de ceras fijadoras e ingredientes hidratantes. Como beneficio adicional, para sentirte aún más MEGA, podés agregar más pasadas para un mega impacto! Este producto es hipoalergénico, probado para alergias y apto para ojos sensibles",
     price: "$20.000",
-    image: rimelAirVolumenImage,
+    image: [rimelAirVolumen1Image, rimelAirVolumen2Image],
     category: "Maquillaje" as const,
     isNew: true,
   },
@@ -413,7 +442,7 @@ const products = [
     name: "Labial Mate INK de Maybelline",
     description: "El labial líquido Super Stay Matte Ink de Maybelline es tu mejor aliado para unos labios impactantes. Su fórmula altamente pigmentada ofrece un color intenso y mate que dura hasta 16 horas*, sin transferirse ni necesidad de retoques. Este labial es perfecto para cualquier ocasión, desde el día a día hasta eventos especiales. *Autoevaluación, 114 mujeres.",
     price: "$19.000",
-    image: labialMateInkImage,
+    image: [labialMateInkImage1, labialMateInkImage2, labialMateInkImage3, labialMateInkImage4, labialMateInkImage5, labialMateInkImage6, labialMateInkImage7, labialMateInkImage8, labialMateInkImage9, labialMateInkImage10, labialMateInkImage11, labialMateInkImage12],
     category: "Maquillaje" as const,
     isNew: true,
   },
@@ -422,7 +451,7 @@ const products = [
     name: "Bombshell Victoria´s Secret",
     description: "Flota en una nube de tu fragancia favorita. Nuestra mist ligero como el aire ofrece un refrescante toque de aroma. Audaz y confiado. La fragancia n.º 1 de Estados Unidos* es una mezcla chispeante de peonías recién cortadas y frutas exóticas al sol de la tarde. Aplica una capa encima de tu Loción de Fragancia a juego para una experiencia de fragancia duradera. Tipo de fragancia: Floral Frutal Notas: fruta de pasión morada, peonía de Shangri-La y orquídea de vainilla. El Mist es nuestra versión más ligera de la fragancia.",
     price: "$49.000",
-    image: bombshellVSImage,
+    image: [bombshellVS1Image, bombshellVS2Image, bombshellVS3Image, bombshellVS4Image, bombshellVS5Image],
     category: "Fragancias" as const,
     isNew: true,
   },
@@ -449,7 +478,7 @@ const products = [
     name: "Rimmel Sky High de Maybelline",
     description: "¡Lográ una longitud sin límites y un volumen redefinido en tus pestañas con la máscara Lash Sensational Sky High Waterproof! Su fórmula con pigmentos negros intensos, ¡es a prueba de agua y sudor! Su innovador cepillo cónico flexible alcanza todas y cada una de tus pestañas sin dejar grumos. Además, su fórmula con extracto de bambú es liviana y súper fácil de aplicar. ¡Lucí unas #PESTAÑASCONALTURA increíbles este verano, a prueba de agua!",
     price: "$22.000",
-    image: rimelSkyHighImage,
+    image: [rimelSkyHighImage1, rimelSkyHighImage2],
     category: "Maquillaje" as const,
     isNew: true,
   },
@@ -494,7 +523,7 @@ const products = [
     name: "Corrector de Ojeras Fit Me de Maybelline",
     description: "El corrector Maybelline Fit Me® para una cobertura impecable y natural. Este corrector sin aceite combina con los tonos de piel para lograr una tez más uniforme.",
     price: "$20.000",
-    image: correctorOjerasFitMeImage,
+    image: [correctorOjerasFitMeImage1, correctorOjerasFitMeImage2, correctorOjerasFitMeImage3, correctorOjerasFitMeImage4],
     category: "Maquillaje" as const,
     isNew: true,
   },
@@ -584,7 +613,7 @@ const products = [
     name: "Agua Micelar de Garnier",
     description: "El Agua Micelar Bifásica desmaquilla, limpia y nutre en un solo gesto. Especial para maquillaje a prueba de agua: rostro, ojos y labios. Una fórmula que combina la eficacia de las micelas con el aceite de argán capturando las impurezas como un imán, incluso el maquilaje a prueba de agua, sin frotar.El aceite de argán es un óleo, conocido por sus propiedades nutritivas y reconfortantes. Combiná de acuerdo a tus necesidades, con el Agua Micelar Todo en 1 para todo tipo de pieles para refrescar y tonificar, o el Agua Micelar Pure Active para pieles mixtas a grasas para matificar y purificar. Sumá a tu rutina las cremas Hidratantes 3 en 1 de Garnier para todos los días, y las mascarillas hidratantes en tela Hidra Bomb de Garnier 1 vez a la semana.",
     price: "$16.000",
-    image: aguaMicelarGarnierImage,
+    image: [aguaMicelarGarnier1Image, aguaMicelarGarnier2Image, aguaMicelarGarnier3Image, aguaMicelarGarnier4Image, aguaMicelarGarnier5Image],
     category: "Cuidado" as const,
     isNew: true,
   },
@@ -701,7 +730,7 @@ const products = [
     name: "Sombra Líquida BRILLIANT EYES de L'oréal Paris",
     description: "¿Querés unos ojos brillantes? Cubrí tus párpados de un brillo resplandeciente con L'Oréal Paris Brilliant Eyes. ¡Esta sombra de ojos líquida de gran impacto y brillo permanece inalterable durante todo el día! Brilliant Eyes no transfiere y dura hasta 16hs. Los pigmentos perlados luminosos son ligeros, resistentes a las arrugas y no grasos para un uso cómodo. Con una sola pasada, el suave aplicador deposita la cantidad justa de producto en los párpados para obtener un alto nivel de brillo y una aplicación de fácil difuminación. Disponible en 6 tonos, podés personalizar tu look de párpados brillantes combinándolos, aumentando la intensidad o simplemente usando tus tonos favoritos solos para conseguir un look de día o de noche.",
     price: "$19.000",
-    image: brilliantEyesImage,
+    image: [brilliantEyes1Image, brilliantEyes2Image],
     category: "Maquillaje" as const,
     isNew: true,
   },
@@ -872,7 +901,7 @@ const products = [
     name: "Base Líquida FIT ME de Maybelline",
     description: "La base Fit Me Matte + Poreless cubre imperfecciones, desvanece los poros y controla el brillo para darle a tu rostro un efecto natural e impecable. En su nuevo pack, ahora cuenta con FPS 22 y 16 hs de control de brillo",
     price: "$22.000",
-    image: baseFitMe2Image,
+    image: [baseFitMe2Image1, baseFitMe2Image2],
     category: "Maquillaje" as const,
     isNew: true,
   },

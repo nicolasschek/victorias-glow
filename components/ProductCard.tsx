@@ -343,15 +343,15 @@ export function ProductCard({ id, name, description, price, image, category, isN
 
       {/* Modal de Producto */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0" aria-describedby="product-description">
+        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0" aria-describedby="product-description">
           <div className="grid md:grid-cols-2 gap-0">
             {/* Columna de imágenes */}
-            <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 p-6">
-              <div className="relative aspect-square w-full">
+            <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 p-4 md:p-8 flex items-center justify-center">
+              <div className="relative w-full max-w-md">
                 <ImageWithFallback
                   src={images[modalImageIndex]}
                   alt={`${name} - Imagen ${modalImageIndex + 1}`}
-                  className="w-full h-full object-contain rounded-lg"
+                  className="w-full h-auto object-contain rounded-lg"
                 />
                 
                 {/* Navegación de imágenes en modal */}
@@ -499,16 +499,18 @@ export function ProductCard({ id, name, description, price, image, category, isN
                   </button>
                 </div>
 
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleWhatsAppClick();
-                  }}
-                  className="w-full bg-[#C85A7C] text-white py-3.5 rounded-full hover:bg-[#A94967] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#C85A7C] focus:ring-offset-2 min-h-[48px]"
-                >
-                  <ShoppingBag size={20} aria-hidden="true" />
-                  <span>Consultar por WhatsApp</span>
-                </button>
+                <div className="flex gap-2">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleWhatsAppClick();
+                    }}
+                    className="flex-1 bg-[#C85A7C] text-white py-3.5 rounded-full hover:bg-[#A94967] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#C85A7C] focus:ring-offset-2 min-h-[48px]"
+                  >
+                    <ShoppingBag size={20} aria-hidden="true" />
+                    <span>Consultar</span>
+                  </button>
+                </div>
 
                 <p className="text-xs text-center text-gray-500">
                   Agregá al carrito para armar tu pedido completo
