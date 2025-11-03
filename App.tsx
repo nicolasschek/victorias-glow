@@ -75,7 +75,8 @@ const rimelSkyHighImage1 = "/images/rimmel-sky-high-maybelline-1.jpg";
 const rimelSkyHighImage2 = "/images/rimmel-sky-high-maybelline-2.jpg";
 const serumExpressAclaraDiaImage = "/images/serum-express-aclara-dia-garnier.jpg";
 const goldKeratinaImage = "/images/gold-keratina-karseell.jpg";
-const delineadorLifterImage = "/images/delineador-lifter-liner-maybelline.jpg";
+const delineadorLifterImage1 = "/images/delineador-lifter-liner-maybelline-1.jpg";
+const delineadorLifterImage2 = "/images/delineador-lifter-liner-maybelline-2.jpg";
 const baseSuperstayLumiImage = "/images/base-superstay-lumimatte-maybelline.jpg";
 const correctorOjerasFitMeImage1 = "/images/corrector-de-ojeras-fit-me-maybelline-1.jpg";
 const correctorOjerasFitMeImage2 = "/images/corrector-de-ojeras-fit-me-maybelline-2.jpg";
@@ -147,7 +148,10 @@ const correctorTrueMatchImage = "/images/corrector-true-match-loreal-paris.jpg";
 const baseFitMe2Image1 = "/images/base-fit-me-maybelline-1.jpg";
 const baseFitMe2Image2 = "/images/base-fit-me-maybelline-2.jpg";
 const correctorSuperstayAWImage = "/images/corrector-superstay-aw-maybelline.jpg";
-const baseLastingFinishImage = "/images/base-lasting-finish-rimmel-london.jpg";
+const baseLastingFinishImage1 = "/images/base-lasting-finish-rimmel-london-1.jpg";
+const baseLastingFinishImage2 = "/images/base-lasting-finish-rimmel-london-2.jpg";
+const baseLastingFinishImage3 = "/images/base-lasting-finish-rimmel-london-3.jpg";
+const baseLastingFinishImage4 = "/images/base-lasting-finish-rimmel-london-4.jpg";
 const serumGlycolicGlossImage = "/images/serum-glycolic-gloss-loreal-paris.jpg";
 const mistRoseCareImage = "/images/mist-rose-care-nivea.jpg";
 const labialRiche1Image = "/images/labial-riche-loreal-paris-1.jpg";
@@ -505,7 +509,7 @@ const products = [
     name: "Delineador de Labios Lifter Liner de Maybelline",
     description: "¡Conocé el nuevo Lifter Liner de Maybelline NY! Formulado con ácido hialurónico, este delineador de labios ofrece un color cremoso y duradero, con sensación suave. Además, su punta afilable ofrece líneas ultra precisas y un deslizamiento suave. Lifter Liner está disponible en 6 tonos para infinitas posibilidades de combinación con tu Lifter Gloss favorito",
     price: "$15.000",
-    image: delineadorLifterImage,
+    image: [delineadorLifterImage1, delineadorLifterImage2],
     category: "Maquillaje" as const,
     isNew: true,
   },
@@ -919,7 +923,7 @@ const products = [
     name: "Base Líquida Lasting Finish de Rimmel London",
     description: "Consegui una hidratación insuperable y una duración de hasta 35 horas con Lasting Finish 35 Hour Foundation, la base de maquillaje de larga duración más hidratante de Rimmel. Esta base de maquillaje de alta cobertura tiene un acabado de aspecto natural y está clínicamente probado que mejora el aspecto de la piel. Una base de maquillaje con una fórmula vegana y sin crueldad animal.",
     price: "$21.000",
-    image: baseLastingFinishImage,
+    image: [baseLastingFinishImage1, baseLastingFinishImage2, baseLastingFinishImage3, baseLastingFinishImage4],
     category: "Maquillaje" as const,
     isNew: true,
   },
