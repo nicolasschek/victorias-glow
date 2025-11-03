@@ -383,12 +383,12 @@ export function ProductCard({ id, name, description, price, image, category, isN
         <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto p-0" aria-describedby="product-description">
           <div className="grid md:grid-cols-2 gap-0">
             {/* Columna de imágenes */}
-            <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 p-6 md:p-12 flex items-center justify-center min-h-[400px] md:min-h-[600px]">
-              <div className="relative w-full">
+            <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 p-6 md:p-8 flex flex-col items-center justify-center min-h-[400px] md:min-h-[600px]">
+              <div className="relative w-full flex-1 flex items-center justify-center">
                 <ImageWithFallback
                   src={images[modalImageIndex]}
                   alt={`${name} - Imagen ${modalImageIndex + 1}`}
-                  className="w-full h-auto object-contain rounded-lg max-h-[350px] md:max-h-[550px]"
+                  className="w-full h-auto object-contain rounded-lg max-h-[350px] md:max-h-[500px]"
                 />
                 
                 {/* Navegación de imágenes en modal */}
@@ -415,35 +415,54 @@ export function ProductCard({ id, name, description, price, image, category, isN
                       <ChevronRight size={20} />
                     </button>
 
-                    {/* Miniaturas */}
-                    <div className="mt-4 flex gap-2 justify-center flex-wrap">
-                      {images.map((img, index) => (
-                        <button
-                          key={index}
-                          onClick={() => goToModalImage(index)}
-                          className={`w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-[#C85A7C] ${
-                            index === modalImageIndex
-                              ? "border-[#C85A7C] scale-110"
-                              : "border-gray-200 hover:border-gray-300"
-                          }`}
-                          aria-label={`Ver imagen ${index + 1}`}
-                        >
-                          <ImageWithFallback
-                            src={img}
-                            alt={`Miniatura ${index + 1}`}
-                            className="w-full h-full object-cover"
-                          />
-                        </button>
-                      ))}
-                    </div>
-
                     {/* Contador */}
                     <div className="absolute top-2 right-2 bg-black/50 text-white text-xs px-3 py-1 rounded-full" aria-live="polite">
                       {modalImageIndex + 1}/{images.length}
                     </div>
+
+                    {/* Indicadores de navegación (puntos) - Solo en Desktop */}
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 hidden md:flex gap-1.5">
+                      {images.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => goToModalImage(index)}
+                          className={`rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#C85A7C] ${
+                            index === modalImageIndex
+                              ? "bg-white w-6 h-2"
+                              : "bg-white/70 hover:bg-white/90 w-2 h-2"
+                          }`}
+                          aria-label={`Ir a imagen ${index + 1} de ${images.length}`}
+                          aria-current={index === modalImageIndex ? "true" : "false"}
+                        />
+                      ))}
+                    </div>
                   </>
                 )}
               </div>
+
+              {/* Miniaturas - Solo en Mobile */}
+              {images.length > 1 && (
+                <div className="mt-4 flex gap-2 justify-center flex-wrap md:hidden">
+                  {images.map((img, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToModalImage(index)}
+                      className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-[#C85A7C] ${
+                        index === modalImageIndex
+                          ? "border-[#C85A7C] scale-110"
+                          : "border-gray-200 hover:border-gray-300"
+                      }`}
+                      aria-label={`Ver imagen ${index + 1}`}
+                    >
+                      <ImageWithFallback
+                        src={img}
+                        alt={`Miniatura ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Columna de información */}

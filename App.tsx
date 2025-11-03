@@ -469,12 +469,12 @@ const products = [
   {
     id: "116",
     name: "Bombshell Victoria´s Secret",
-    description: "Flota en una nube de tu fragancia favorita. Nuestra mist ligero como el aire ofrece un refrescante toque de aroma. Audaz y confiado. La fragancia n.º 1 de Estados Unidos* es una mezcla chispeante de peonías recién cortadas y frutas exóticas al sol de la tarde. Aplica una capa encima de tu Loción de Fragancia a juego para una experiencia de fragancia duradera. Tipo de fragancia: Floral Frutal Notas: fruta de pasión morada, peonía de Shangri-La y orquídea de vainilla. El Mist es nuestra versión más ligera de la fragancia.",
+    description: "ORIGINAL: Ligero como el aire ofrece un refrescante toque de aroma. Audaz y confiado. La fragancia n.º 1 de Estados Unidos es una mezcla chispeante de peonías recién cortadas y frutas exóticas al sol de la tarde.\n\nSEDUCTION: El fresco tacto del satén sobre la piel desnuda. La salvia abre la fragancia con una sensación etérea y refrescante. Un embriagador dúo de flores blancas compone el radiante corazón floral: la distintiva peonía blanca y el cremoso nardo. El almizcle aterciopelado añade un toque de calidez similar a la piel, una misteriosa nota final a esta pura belleza.\n\nPASSION: Flota en una nube de tu fragancia favorita. Nuestro mist ligero como el aire ofrece un refrescante toque de aroma. Indómita y viva, un audaz ramo de peonías eléctricas y chispas.\n\nINTENSE: Potente y rico, una mezcla decadente de peonía roja y frutas exuberantes. Notas: cereza exuberante, peonía roja, vainilla sensual.",
     price: "$49.000",
     image: [bombshellVS1Image, bombshellVS2Image, bombshellVS3Image, bombshellVS4Image, bombshellVS5Image],
     category: "Fragancias" as const,
     isNew: true,
-    variants: ["Bombshell Intense", "Bombshell Original", "Bombshell Paradise", "Bombshell Magic"],
+    variants: ["ORIGINAL", "SEDUCTION", "PASSION", "INTENSE"],
   },
   {
     id: "117",
